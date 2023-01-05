@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('welcome');})->name("home");
 Route::get('/posts',"PostContoller@index")->name("posts");
 Route::get('/post/create',"PostContoller@create")->name("create");
+Route::get('/post/update',"PostContoller@update")->name("update");
+Route::get('/post/delete',"PostContoller@delete")->name("delete");
