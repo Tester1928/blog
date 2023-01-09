@@ -115,6 +115,11 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/sebastian/exporter" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/sebastian/complexity" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/dbal" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
