@@ -12,8 +12,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('welcome');})->name("home");
-Route::get('/posts',"PostContoller@index")->name("posts");
-Route::get('/post/create',"PostContoller@create")->name("create");
-Route::get('/post/update',"PostContoller@update")->name("update");
-Route::get('/post/delete',"PostContoller@delete")->name("delete");
+Route::get('/', "HomeController@index")->name("home");
+Route::get('/collection', "CollectionController@index")->name("collection");
+Route::get('/about', "AboutController@index")->name("about");
+Route::get('/services', "ServiceController@index")->name("services");
+Route::get('/blog', "BlogController@index")->name("blog");
+Route::get('/blog/detail', "BlogController@detail")->name("blog_detail");
+Route::get('/contact', "ContactController@index")->name("contact");
+
+
+Route::get('/posts',"PostController@index")->name("posts");
+Route::get('/post/create',"PostController@create")->name("create");
+Route::get('/post/update',"PostController@update")->name("update");
+Route::get('/post/delete',"PostController@delete")->name("delete");
