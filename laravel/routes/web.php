@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::get('/', [Controllers\MainController::class,"index"])->name("main");
