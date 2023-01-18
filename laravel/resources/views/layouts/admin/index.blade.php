@@ -259,15 +259,16 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
+        {{--<div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                      {{--  <h1>Dashboard</h1>--}}
+                      <h1>Dashboard</h1>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
+        <div class="mt-5"></div>
 
       @yield('content')
     </div><!-- /#right-panel -->

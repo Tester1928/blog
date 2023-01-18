@@ -15,6 +15,19 @@ class ProfileController extends Controller
         $user = auth()->user();
         return view("admin.profile",compact('user'));
     }
+    public function edit(User $user){
+      $data = \request()->validate([
+          "name"=>"",
+          "email"=>"",
+          "password"=>"",
+      ]);
+      if(empty($data["password"])){
+          unset($data["password"]);
+      }
+        $result = $user->update($data);
+        return redirect('admin/profile/');
+
+    }
     public function logout(){
         Session::flush();
         Auth::logout();
