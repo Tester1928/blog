@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,17 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', "HomeController@index")->name("home");
-Route::get('/collection', "CollectionController@index")->name("collection");
-Route::get('/about', "AboutController@index")->name("about");
-Route::get('/services', "ServiceController@index")->name("services");
-Route::get('/blog', "BlogController@index")->name("blog");
-Route::get('/blog/detail', "BlogController@detail")->name("blog_detail");
-Route::get('/contact', "ContactController@index")->name("contact");
+Route::get('/', [Controllers\MainController::class,"index"])->name("main");
+Route::get('/collection', [Controllers\CollectionController::class,"index"])->name("collection");
+Route::get('/about', [Controllers\AboutController::class,"index"])->name("about");
+Route::get('/services', [Controllers\ServiceController::class,"index"])->name("services");
+Route::get('/blog', [Controllers\BlogController::class,"index"])->name("blog");
+Route::get('/blog/detail', [Controllers\BlogController::class,"index"])->name("blog_detail");
+Route::get('/contact', [Controllers\ContactController::class,"index"])->name("contact");
 
-
-Route::get('/posts',"PostController@index")->name("posts");
-Route::get('/post/create',"PostController@create")->name("create");
-Route::get('/post/update',"PostController@update")->name("update");
-Route::get('/post/delete',"PostController@delete")->name("delete");
+Route::middleware('auth')->group(function() {
+    Route::get('/admin', [Admin\AdminController::class,"index"])->name("admin.index");
+    Route::get('/admin/profile', [Admin\ProfileController::class,"index"])->name("admin.profile");
+});

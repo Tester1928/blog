@@ -34,13 +34,13 @@
         <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
         <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
             <h1 id="colorlib-logo">
-                <a href="{{route("home")}}"><span class="img" style="background-image: url(/laravel/public/images/author.jpg);"></span>Louie Smith
+                <a href="{{route("main")}}"><span class="img" style="background-image: url(/laravel/public/images/author.jpg);"></span>Louie Smith
                 </a>
             </h1>
             <nav id="colorlib-main-menu" role="navigation">
                 <ul>
                     <li class="colorlib-active">
-                        <a href="{{route("home")}}">Home</a>
+                        <a href="{{route("main")}}">Home</a>
                     </li>
                     <li>
                         <a href="{{route("collection")}}">Collection</a>
