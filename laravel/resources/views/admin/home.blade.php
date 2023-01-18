@@ -1,4 +1,4 @@
-@extends('templates.admin.index')
+@extends('layouts.admin.index')
 @section('content')
     <div class="content mt-3">
 

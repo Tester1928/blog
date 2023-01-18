@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Admin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +29,5 @@ Route::get('/contact', [Controllers\ContactController::class,"index"])->name("co
 Route::middleware('auth')->group(function() {
     Route::get('/admin', [Admin\AdminController::class,"index"])->name("admin.index");
     Route::get('/admin/profile', [Admin\ProfileController::class,"index"])->name("admin.profile");
+    Route::get('/admin/logout', [Admin\ProfileController::class,"logout"])->name("admin.logout");
 });

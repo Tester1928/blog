@@ -1,4 +1,4 @@
-@extends('templates.main.index')
+@extends('layouts.main.index')
 @section('content')
             <section class="ftco-section-no-padding bg-light">
                 <div class="hero-wrap">

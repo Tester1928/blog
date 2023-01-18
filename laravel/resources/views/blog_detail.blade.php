@@ -1,4 +1,4 @@
-@extends('templates.main.index')
+@extends('layouts.main.index')
 @section('content')
     <section class="ftco-section ftco-bread">
         <div class="container">
