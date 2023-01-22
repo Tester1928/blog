@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
+use Intervention\Image\Facades\Image;
 class ProfileController extends Controller
 {
     public function index()
@@ -31,6 +31,8 @@ class ProfileController extends Controller
             "email"    => 'required|string|email|max:255|unique:users,email,' . $user->id,
             "password" => request()->get('password') ? "required|string|min:8" : '',
         ]);
+
+
 
         $file = \request()->file('file');
         if ($file) {
