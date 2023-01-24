@@ -1463,7 +1463,18 @@ header .form-inline {
     padding: 0 !important;
     text-overflow: ellipsis; }
 
+  .user-header{
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+  }
+  .user-header span{
+      margin-right: 10px;
+  }
 .user-area {
+
   float: right;
   padding-right: 0;
   position: relative; }
@@ -1490,7 +1501,9 @@ header .form-inline {
   .user-area .user-avatar {
     float: right;
     margin-top: 4px;
-    width: 32px; }
+    width: 40px;
+    height: 40px;
+  }
   .user-area .user-info .name {
     color: #8c8c8c;
     font-size: 14px;

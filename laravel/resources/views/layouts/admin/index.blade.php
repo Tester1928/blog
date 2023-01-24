@@ -25,6 +25,7 @@
 
 
     <link rel="stylesheet" href="/laravel/public/css/admin/style.css">
+    <link rel="stylesheet" href="/laravel/public/css/admin/custom.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -217,9 +218,13 @@
 
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$user->name}}
-{{--                            <img class="user-avatar rounded-circle" src="/laravel/public/images/admin/admin.jpg" alt="User Avatar">--}}
+                        <a href="#" class="dropdown-toggle user-header" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span>{{$user->name}}</span>
+                            @if($user->image)
+                                <img class="user-avatar rounded-circle" src="/laravel/public/{{$user->image}}" alt="avatar">
+                            @endif
+
+
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -275,11 +280,11 @@
 
     <!-- Right Panel -->
 
+
     <script src="/laravel/public/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/laravel/public/vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="/laravel/public/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/laravel/public/js/admin/main.js"></script>
-
 
     <script src="/laravel/public/vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="/laravel/public/js/admin/dashboard.js"></script>
@@ -287,6 +292,8 @@
     <script src="/laravel/public/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="/laravel/public/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="/laravel/public/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/laravel/public/js/admin/jquery-3.6.3.min.js"></script>
+    <script src="/laravel/public/js/admin/custom.js"></script>
     <script>
         (function($) {
             "use strict";

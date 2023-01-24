@@ -17,9 +17,8 @@ class ProfileController extends Controller
         $files = Storage::allFiles();
 
         $user = auth()->user();
-        $avatar = "/storage/users/$user->id/$user->image";
 
-        return view("admin.profile", compact('user', 'avatar'));
+        return view("admin.profile", compact('user'));
     }
 
     public function edit($id)
@@ -32,13 +31,9 @@ class ProfileController extends Controller
             "password" => request()->get('password') ? "required|string|min:8" : '',
         ]);
 
-
-
-        $file = \request()->file('file');
-        if ($file) {
-            $file_name = $file->getClientOriginalName();
-            $file->storeAs("public/users/$id", $file_name);
-            $user->image = $file_name;
+        $image_path = ImageController ::add('avatar','avatar',$user->id,200,200);
+        if($image_path){
+            $user->image = $image_path;
         }
 
         $user->name = $data["name"];
