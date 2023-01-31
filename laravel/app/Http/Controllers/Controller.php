@@ -9,5 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    public $define = ["PUBLIC_PATH"=> "/laravel/public/"];
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

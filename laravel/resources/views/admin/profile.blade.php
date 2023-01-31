@@ -6,7 +6,6 @@
                 <div class="card-header">
                     <strong>Profile</strong>
                 </div>
-
                 <form method="POST" action="{{ route('admin.profile.edit',$user->id) }}"
                       enctype="multipart/form-data"
                       class="form-horizontal">
@@ -39,23 +38,34 @@
                             <div class="col-12 col-md-9">
                                 <div id="upload-container">
                                     <div class="upload-image-wrap">
-                                        @if($user->image)
-                                            <img class="load-photo" src="/laravel/public/{{$user->image}}">
+                                        @if($user->image && file_exists($_SERVER["DOCUMENT_ROOT"].$define["PUBLIC_PATH"].$user->image))
+                                            <img class="load-photo" src="{{$define["PUBLIC_PATH"].$user->image}}">
                                         @else
-                                            <img class="no-photo"
-                                                 src="https://habrastorage.org/webt/dr/qg/cs/drqgcsoh1mosho2swyk3kk_mtwi.png">
+                                            <img class="no-photo" src="https://habrastorage.org/webt/dr/qg/cs/drqgcsoh1mosho2swyk3kk_mtwi.png">
                                         @endif
                                     </div>
-                                    <div class="wrap_file_input">
-                                        <input id="file-input" type="file" name="avatar">
+                                    @if($user->image && file_exists($_SERVER["DOCUMENT_ROOT"].$define["PUBLIC_PATH"].$user->image))
+                                        <div class="wrap-file-name">
+                                            <span class="sp-file-name">
+                                                {{$user->image}}
+                                                <span class="ti-close" id="close-file"></span>
+                                            </span>
+                                        </div>
+                                        <div class="wrap-file-input">
+                                            <input id="file-input" type="file" name="avatar">
+                                        </div>
+                                    @else
+                                    <div class="wrap-file-input">
+                                      <input id="file-input" type="file" name="avatar">
                                         <label for="file-input">Выберите файл</label>
                                         <span class="sp-block">или перетащите его сюда</span>
                                     </div>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="card-footer">

@@ -11,6 +11,6 @@ class AdminController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view("admin.home",compact('user'));
+        return view("admin.home",['user'=>$user,'define'=>$this->define]);
     }
 }

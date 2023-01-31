@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
         $user = auth()->user();
 
-        return view("admin.profile", compact('user'));
+        return view("admin.profile", ['user'=>$user,'define'=>$this->define]);
     }
 
     public function edit($id)
@@ -31,7 +31,7 @@ class ProfileController extends Controller
             "password" => request()->get('password') ? "required|string|min:8" : '',
         ]);
 
-        $image_path = ImageController ::add('avatar','avatar',$user->id,200,200);
+        $image_path = ImageController ::add('avatar','avatar',$user->id,200);
         if($image_path){
             $user->image = $image_path;
         }

@@ -13,29 +13,26 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{{--    <link rel="apple-touch-icon" href="/laravel/public/images/admin/apple-icon.png">--}}
-    <link rel="shortcut icon" href="/laravel/public/images/admin/favicon.ico">
+{{--    <link rel="apple-touch-icon" href="{{$define["PUBLIC_PATH"]}}images/admin/apple-icon.png">--}}
+    <link rel="shortcut icon" href="{{$define["PUBLIC_PATH"]}}images/admin/favicon.ico">
 
-    <link rel="stylesheet" href="/laravel/public/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/laravel/public/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/laravel/public/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="/laravel/public/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/laravel/public/vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="/laravel/public/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}vendors/jqvmap/dist/jqvmap.min.css">
 
 
-    <link rel="stylesheet" href="/laravel/public/css/admin/style.css">
-    <link rel="stylesheet" href="/laravel/public/css/admin/custom.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}css/admin/style.css">
+    <link rel="stylesheet" href="{{$define["PUBLIC_PATH"]}}css/admin/custom.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
-
-
     <!-- Left Panel -->
-
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
@@ -43,8 +40,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="/laravel/public/images/admin/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="/laravel/public/images/admin/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="{{$define["PUBLIC_PATH"]}}images/admin/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="{{$define["PUBLIC_PATH"]}}images/admin/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -180,7 +177,7 @@
                             <div class="dropdown-menu" aria-labelledby="message">
                                 <p class="red">You have 4 Mails</p>
                                 <a class="dropdown-item media bg-flat-color-1" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="/laravel/public/images/admin/avatar/1.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{$define["PUBLIC_PATH"]}}images/admin/avatar/1.jpg"></span>
                                     <span class="message media-body">
                                     <span class="name float-left">Jonathan Smith</span>
                                     <span class="time float-right">Just now</span>
@@ -188,7 +185,7 @@
                                 </span>
                                 </a>
                                 <a class="dropdown-item media bg-flat-color-4" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="/laravel/public/images/admin/avatar/2.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{$define["PUBLIC_PATH"]}}images/admin/avatar/2.jpg"></span>
                                     <span class="message media-body">
                                     <span class="name float-left">Jack Sanders</span>
                                     <span class="time float-right">5 minutes ago</span>
@@ -196,7 +193,7 @@
                                 </span>
                                 </a>
                                 <a class="dropdown-item media bg-flat-color-5" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="/laravel/public/images/admin/avatar/3.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{$define["PUBLIC_PATH"]}}images/admin/avatar/3.jpg"></span>
                                     <span class="message media-body">
                                     <span class="name float-left">Cheryl Wheeler</span>
                                     <span class="time float-right">10 minutes ago</span>
@@ -204,7 +201,7 @@
                                 </span>
                                 </a>
                                 <a class="dropdown-item media bg-flat-color-3" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="/laravel/public/images/admin/avatar/4.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{$define["PUBLIC_PATH"]}}images/admin/avatar/4.jpg"></span>
                                     <span class="message media-body">
                                     <span class="name float-left">Rachel Santos</span>
                                     <span class="time float-right">15 minutes ago</span>
@@ -221,7 +218,7 @@
                         <a href="#" class="dropdown-toggle user-header" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>{{$user->name}}</span>
                             @if($user->image)
-                                <img class="user-avatar rounded-circle" src="/laravel/public/{{$user->image}}" alt="avatar">
+                                <img class="user-avatar rounded-circle" src="{{$define["PUBLIC_PATH"]}}{{$user->image}}" alt="avatar">
                             @endif
 
 
@@ -281,19 +278,19 @@
     <!-- Right Panel -->
 
 
-    <script src="/laravel/public/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/laravel/public/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/laravel/public/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/laravel/public/js/admin/main.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/main.js"></script>
 
-    <script src="/laravel/public/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="/laravel/public/js/admin/dashboard.js"></script>
-    <script src="/laravel/public/js/admin/widgets.js"></script>
-    <script src="/laravel/public/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="/laravel/public/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="/laravel/public/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="/laravel/public/js/admin/jquery-3.6.3.min.js"></script>
-    <script src="/laravel/public/js/admin/custom.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/dashboard.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/widgets.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/jquery-3.6.3.min.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/custom.js"></script>
     <script>
         (function($) {
             "use strict";
