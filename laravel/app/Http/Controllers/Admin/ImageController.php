@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Facade\Ignition\DumpRecorder\Dump;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,16 +20,9 @@ class ImageController extends Controller
         "avatar" => "users/avatars",
     ];
 
-    public static function defines()
-    {
-        return [
-            "public_path" =>$_SERVER["DOCUMENT_ROOT"] . "/laravel/public/"
-        ];
-    }
 
     public function add($key_name, $name_path, $user_id, $width = 500, $height = 500)
     {
-        $defines = self::defines();
 
         if (self::PATH[$name_path]) {
             $add_path = self::PATH[$name_path];
@@ -43,8 +37,8 @@ class ImageController extends Controller
             $dir_path = "storage/$add_path/$user_id/";
             $path = public_path($dir_path . $file_name);
 
-            if (!is_dir($defines["public_path"] . $dir_path)) {
-                mkdir($defines["public_path"] . $dir_path, 0644, true);
+            if (!is_dir(parent::PUBLIC_PATH . $dir_path)) {
+                mkdir(parent::PUBLIC_PATH . $dir_path, 0644, true);
             }
 
             $img = Image::make($image->getRealPath())->resize($width, $height, function ($constraint) {
@@ -55,6 +49,18 @@ class ImageController extends Controller
             return $dir_path . $file_name;
         }
         return false;
+    }
+    public function delete($file_path){
+
+        if(!file_exists($_SERVER["DOCUMENT_ROOT"].parent::PUBLIC_PATH.$file_path)){
+            return true;
+        }
+
+        if(strpos($file_path,"storage/")!==false){
+            $file_path = str_replace("storage/","",$file_path);
+        }
+
+        return Storage::disk('public')->delete($file_path);
     }
 
 }

@@ -7,6 +7,7 @@
 <!--<![endif]-->
 
 <head>
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sufee Admin - HTML5 Admin Template</title>
@@ -291,6 +292,7 @@
     <script src="{{$define["PUBLIC_PATH"]}}vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script src="{{$define["PUBLIC_PATH"]}}js/admin/jquery-3.6.3.min.js"></script>
     <script src="{{$define["PUBLIC_PATH"]}}js/admin/custom.js"></script>
+    <script src="{{$define["PUBLIC_PATH"]}}js/admin/ajax.js"></script>
     <script>
         (function($) {
             "use strict";

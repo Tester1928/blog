@@ -14,11 +14,9 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $files = Storage::allFiles();
-
         $user = auth()->user();
 
-        return view("admin.profile", ['user'=>$user,'define'=>$this->define]);
+        return view("admin.profile", ['user'=>$user,'define'=>["PUBLIC_PATH"=>parent::PUBLIC_PATH]]);
     }
 
     public function edit($id)
@@ -45,6 +43,13 @@ class ProfileController extends Controller
 
         return redirect('admin/profile/');
 
+    }
+
+    public function deleteAvatar($id){
+        $user = User::findOrFail($id);
+        ImageController::delete($user->image);
+        $user->image = "";
+        $user->save();
     }
 
     public function logout()

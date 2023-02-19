@@ -48,7 +48,7 @@
                                         <div class="wrap-file-name">
                                             <span class="sp-file-name">
                                                 {{$user->image}}
-                                                <span class="ti-close" id="close-file"></span>
+                                                <span class="ti-close" id="close-file" data-user_id="{{$user->id}}"></span>
                                             </span>
                                         </div>
                                         <div class="wrap-file-input">

@@ -30,5 +30,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', [Admin\AdminController::class,"index"])->name("admin.index");
     Route::get('/admin/profile', [Admin\ProfileController::class,"index"])->name("admin.profile");
     Route::get('/admin/logout', [Admin\ProfileController::class,"logout"])->name("admin.logout");
-    Route::patch('/admin/profile/{id}/edit/', [Admin\ProfileController::class,"edit"])->name("admin.profile.edit");
+    Route::patch('/admin/profile/{id}/edit', [Admin\ProfileController::class,"edit"])->name("admin.profile.edit");
+    Route::delete('/admin/profile/{id}/deleteAvatar', [Admin\ProfileController::class,"deleteAvatar"])->name("admin.profile.deleteAvatar");
 });
