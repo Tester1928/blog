@@ -8,9 +8,18 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    protected static function getReturnData()
     {
         $user = auth()->user();
-        return view("admin.home",['user'=>$user,'define'=>["PUBLIC_PATH"=>parent::PUBLIC_PATH]]);
+        return [
+            'user'   => $user,
+            'define' => ["PUBLIC_PATH" => parent::PUBLIC_PATH]
+        ];
+    }
+
+    public function index()
+    {
+        $data = self::getReturnData();
+        return view("admin.home",$data);
     }
 }

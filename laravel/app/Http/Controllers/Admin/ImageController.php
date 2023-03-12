@@ -17,11 +17,11 @@ class ImageController extends Controller
 {
     const PATH = [
         "all"    => 'upload',
-        "avatar" => "users/avatars",
+        "avatar" => "user/avatar",
     ];
 
 
-    public function add($key_name, $name_path, $user_id, $width = 500, $height = 500)
+    public function add($key_name, $name_path, $width = 500, $height = 500)
     {
 
         if (self::PATH[$name_path]) {
@@ -34,12 +34,13 @@ class ImageController extends Controller
 
         if ($image) {
             $file_name = $image->getClientOriginalName();
-            $dir_path = "storage/$add_path/$user_id/";
-            $path = public_path($dir_path . $file_name);
+            $dir_path = "storage/$add_path/";
 
-            if (!is_dir(parent::PUBLIC_PATH . $dir_path)) {
-                mkdir(parent::PUBLIC_PATH . $dir_path, 0644, true);
+            if (!is_dir($_SERVER["DOCUMENT_ROOT"].parent::PUBLIC_PATH . $dir_path)) {
+                mkdir($_SERVER["DOCUMENT_ROOT"].parent::PUBLIC_PATH . $dir_path, 0644, true);
             }
+
+            $path = public_path($dir_path . $file_name);
 
             $img = Image::make($image->getRealPath())->resize($width, $height, function ($constraint) {
                 $constraint->aspectRatio();

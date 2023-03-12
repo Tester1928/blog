@@ -1,17 +1,19 @@
 $(document).ready(function () {
    $("#close-file").on("click",function (){
-    let user_id = $(this).attr("data-user_id");
-    let csrf_token = $('meta[name="csrf_token"]').attr('content')
+       let curOb = $(this);
+       let type = curOb.attr("data-type");
+       let csrf_token = $('meta[name="csrf_token"]').attr('content')
 
        $.ajax({
            type:'POST',
            headers: {'X-CSRF-TOKEN': csrf_token},
-           url:'/admin/profile/'+user_id+'/deleteAvatar',
+           url:'/admin/'+type,
            data: {
                '_method': 'delete'
            },
-           success: function () {
-               window.location.reload();
+           dataType:"html",
+           success: function (data) {
+               curOb.closest("#upload-container").html(data)
            }
        });
    })

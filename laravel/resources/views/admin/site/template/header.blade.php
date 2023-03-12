@@ -37,33 +37,6 @@
                             <div class="col col-md-3"><label for="avatar" class=" form-control-label">Avatar</label></div>
                             <div class="col-12 col-md-9">
                                 {{App\Html\Admin::imageHtml($user->image,"avatar")}}
-                               {{-- <div id="upload-container">
-                                    <div class="upload-image-wrap">
-                                        @if($user->image && file_exists($_SERVER["DOCUMENT_ROOT"].$define["PUBLIC_PATH"].$user->image))
-                                            <img class="load-photo" src="{{$define["PUBLIC_PATH"].$user->image}}">
-                                        @else
-                                            <img class="no-photo" src="https://habrastorage.org/webt/dr/qg/cs/drqgcsoh1mosho2swyk3kk_mtwi.png">
-                                        @endif
-                                    </div>
-                                    @if($user->image && file_exists($_SERVER["DOCUMENT_ROOT"].$define["PUBLIC_PATH"].$user->image))
-                                        <div class="wrap-file-name">
-                                            <span class="sp-file-name">
-                                                {{$user->image}}
-                                                <span class="ti-close" id="close-file" data-user_id="{{$user->id}}"></span>
-                                            </span>
-                                        </div>
-                                        <div class="wrap-file-input">
-                                            <input id="file-input" type="file" name="avatar">
-                                        </div>
-                                    @else
-                                    <div class="wrap-file-input">
-                                      <input id="file-input" type="file" name="avatar">
-                                        <label for="file-input">Выберите файл</label>
-                                        <span class="sp-block">или перетащите его сюда</span>
-                                    </div>
-                                    @endif
-
-                                </div>--}}
                             </div>
                         </div>
                     </div>

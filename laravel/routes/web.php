@@ -28,8 +28,15 @@ Route::get('/contact', [Controllers\ContactController::class,"index"])->name("co
 
 Route::middleware('auth')->group(function() {
     Route::get('/admin', [Admin\AdminController::class,"index"])->name("admin.index");
+    /*Profile*/
     Route::get('/admin/profile', [Admin\ProfileController::class,"index"])->name("admin.profile");
     Route::get('/admin/logout', [Admin\ProfileController::class,"logout"])->name("admin.logout");
     Route::patch('/admin/profile/{id}/edit', [Admin\ProfileController::class,"edit"])->name("admin.profile.edit");
-    Route::delete('/admin/profile/{id}/deleteAvatar', [Admin\ProfileController::class,"deleteAvatar"])->name("admin.profile.deleteAvatar");
+    Route::delete('/admin/deleteAvatar', [Admin\ProfileController::class,"deleteAvatar"])->name("admin.profile.deleteAvatar");
+    /*header -- footer*/
+    Route::get('/admin/template/header', "Admin\Template\Header\IndexController")->name("admin.template.header");
+    Route::get('/admin/template/footer', "Admin\Template\Footer\IndexController")->name("admin.template.footer");
+
+    /*home page*/
+    Route::get('/admin/page/home', "Admin\Pages\Home\IndexController")->name("admin.homePage.index");
 });

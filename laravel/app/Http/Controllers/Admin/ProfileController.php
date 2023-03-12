@@ -29,7 +29,7 @@ class ProfileController extends Controller
             "password" => request()->get('password') ? "required|string|min:8" : '',
         ]);
 
-        $image_path = ImageController ::add('avatar','avatar',$user->id,200);
+        $image_path = ImageController::add('avatar','avatar',200);
         if($image_path){
             $user->image = $image_path;
         }
@@ -45,11 +45,12 @@ class ProfileController extends Controller
 
     }
 
-    public function deleteAvatar($id){
-        $user = User::findOrFail($id);
+    public function deleteAvatar(){
+        $user = auth()->user();
         ImageController::delete($user->image);
         $user->image = "";
         $user->save();
+        return \App\Html\Admin::imageHtml("","avatar",false);
     }
 
     public function logout()
